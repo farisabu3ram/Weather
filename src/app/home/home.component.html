@@ -1,9 +1,52 @@
-<div class="row">
-
-    <div class="col-md-6 offset-md-3 ">
-        <div class="col-sm-12 text-center">
-             <h5>Current weather and forecasts in your city ...</h5>
-             <h2>Weather in {{weather.name}} , {{weather.sys.country}}</h2>
+<body>
+    <div class="all">
+        <div class="today">
+            <div class="head">
+                <span class="icon">&#63;</span>
+                <h1>{{weather.name}}</h1>
+                <div class="menu">
+                    <div class="menus"></div>
+                    <div class="menus"></div>
+                    <div class="menus"></div>
+                </div>
+            </div>
+            <div class="weather-icon">
+                <img class="weather-icons" src="assets/{{weather.weather[0].icon}}.png" alt="01d.png">
+                <div class="slc">{{weather.main.temp|number:'1.0-0'}} &#176;C</div>
+            </div>
+            <div class="description">{{weather.weather[0].description}} </div>
         </div>
+        <div class="forecast">
+            <div class="forecasts">
+                <div>{{foreCast.list[8].dt_txt.substr(0,10)}}</div>
+                <img class="forecast-icon" src="assets/{{foreCast.list[8].weather[0].icon}}.png" alt="01d.png">
+                <div> Temp max : {{foreCast.list[8].main.temp_max}}</div>
+                <div> Temp min : {{foreCast.list[8].main.temp_min}}</div>
+
+            </div>
+            <div class="forecasts">
+                <div>{{foreCast.list[16].dt_txt.substr(0,10)}}</div>
+                <img class="forecast-icon" src="assets/{{foreCast.list[16].weather[0].icon}}.png" alt="01d.png">
+                <div> Temp max : {{foreCast.list[16].main.temp_max}}</div>
+                <div> Temp min : {{foreCast.list[16].main.temp_min}}</div>
+
+            </div>
+            <div class="forecasts">
+                <div>{{foreCast.list[24].dt_txt.substr(0,10)}}</div>
+                <img class="forecast-icon" src="assets/{{foreCast.list[24].weather[0].icon}}.png" alt="01d.png">
+                <div> Temp max : {{foreCast.list[24].main.temp_max}}</div>
+                <div> Temp min : {{foreCast.list[24].main.temp_min}}</div>
+
+            </div>
+            <div class="forecasts">
+                <div>{{foreCast.list[32].dt_txt.substr(0,10)}}</div>
+                <img class="forecast-icon" src="assets/{{foreCast.list[32].weather[0].icon}}.png" alt="01d.png">
+                <div> Temp max : {{foreCast.list[32].main.temp_max}}</div>
+                <div> Temp min : {{foreCast.list[32].main.temp_min}}</div>
+
+            </div>
+
+        </div>
+
     </div>
-</div>
+</body>

@@ -10,6 +10,7 @@ export class HomeComponent implements OnInit {
   lat;
   lon;
   weather;
+  foreCast;
   constructor(private weatherService: WeatherService) { }
 
   ngOnInit() {
@@ -23,10 +24,17 @@ export class HomeComponent implements OnInit {
 
         this.weatherService.getWeatherDateByCoords(this.lat, this.lon).subscribe(data => {
           this.weather = data;
+          this.weatherService.getForeCastData(this.weather.name).subscribe(data => {
+            this.foreCast = data;
+          })
         })
       })
     }
 
   }
+
+
+
+
 
 }

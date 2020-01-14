@@ -1,0 +1,78 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background: url(https://i.pinimg.com/736x/02/bc/2c/02bc2cbad468eef1380f5ff5e3662dab.jpg);
+}
+
+.today {
+    display: flex;
+    flex-direction: column;
+}
+
+.head {
+    display: flex;
+    flex-direction: row;
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    color: rgb(27, 45, 51);
+    font-size: 50px;
+    cursor: pointer;
+    margin-left: 10px;
+
+
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-left: 20px;
+    cursor: pointer;
+
+}
+
+.menus {
+
+    width: 35px;
+    height: 5px;
+    background-color: rgb(27, 45, 51);
+    margin: 6px 0;
+}
+
+h1 {
+    margin-top: 50px;
+    margin-left: -20px;
+    font-size: 42px;
+}
+.weather-icon{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    font-size: 40px;
+}
+.weather-icons{
+    margin-top: -25px;
+
+}
+.description{
+    text-align: center;
+    justify-content: center;
+    font-size: 40px;
+
+}
+.forecast{
+    display: flex;
+    flex-direction: column;
+}
+.forecasts{
+    display: flex;
+    flex-direction: row;
+}
+.forecast-icon{
+    margin-top: -30px;
+}
