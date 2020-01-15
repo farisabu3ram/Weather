@@ -2,44 +2,44 @@
     <div class="all">
         <div class="today">
             <div  class="head">
-                <div [routerLink]="['City',city]" class="icon">&#63;</div>
-                <h1 *ngIf="weather">{{weather.name }}</h1>
-                <div class="menu" routerLink="cities">
+                <div [routerLink]="['City',weather.name]" class="icon">&#63;</div>
+                <h1 >{{weather.name }}</h1>
+                <div class="menu" [routerLink]="['cities']">
                     <div class="menus"></div>
                     <div class="menus"></div>
                     <div class="menus"></div>
                 </div>
             </div>
             <div class="weather-icon">
-                <img *ngIf="weather.weather" class="weather-icons" src="assets/{{weather.weather[0].icon}}.png" alt="01d.png">
-                <div *ngIf="weather.main" class="slc">{{weather.main.temp|number:'1.0-0'}} &#176;C</div>
+                <img  class="weather-icons" src="assets/{{weather.weather[0].icon}}.png" alt="01d.png">
+                <div  class="slc">{{weather.main.temp|number:'1.0-0'}} &#176;C</div>
             </div>
-            <div *ngIf="weather.weather" class="description">{{weather.weather[0].description}} </div>
+            <div class="description">{{weather.weather[0].description}} </div>
         </div>
         <div class="forecast">
             <div class="forecasts">
-                <div *ngIf="foreCast.list" >{{foreCast.list[8].dt_txt.substr(0,10)}}</div>
-                <img *ngIf="foreCast.list "class="forecast-icon" src="assets/{{foreCast.list[8].weather[0].icon}}.png" alt="01d.png">
-                <div *ngIf="foreCast.list">  {{foreCast.list[8].main.temp_max}}</div>
-                <div *ngIf="foreCast.list" class="min-temp">  {{foreCast.list[8].main.temp_min}}</div>
+                <div class="day" >{{day1}}</div>
+                <img class="forecast-icon" src="assets/{{foreCast.list[8].weather[0].icon}}.png" alt="01d.png">
+                <div >  {{foreCast.list[8].main.temp_max}}&deg;C</div>
+                <div class="min-temp">  {{foreCast.list[8].main.temp_min}}&deg;C</div>
             </div>
             <div class="forecasts">
-                <div *ngIf="foreCast.list" >{{foreCast.list[16].dt_txt.substr(0,10)}}</div>
-                <img *ngIf="foreCast.list"class="forecast-icon" src="assets/{{foreCast.list[16].weather[0].icon}}.png" alt="01d.png">
-                <div *ngIf="foreCast.list">  {{foreCast.list[16].main.temp_max}}</div>
-                <div *ngIf="foreCast.list" class="min-temp">  {{foreCast.list[16].main.temp_min}}</div>
+                <div class="day" >{{day2}}</div>
+                <img class="forecast-icon" src="assets/{{foreCast.list[16].weather[0].icon}}.png" alt="01d.png">
+                <div >  {{foreCast.list[16].main.temp_max}}&deg;C</div>
+                <div class="min-temp"> {{foreCast.list[16].main.temp_min}}&deg;C</div>
             </div>
             <div class="forecasts">
-                <div *ngIf="foreCast.list" >{{foreCast.list[24].dt_txt.substr(0,10)}}</div>
-                <img *ngIf="foreCast.list"class="forecast-icon" src="assets/{{foreCast.list[24].weather[0].icon}}.png" alt="01d.png">
-                <div *ngIf="foreCast.list">  {{foreCast.list[24].main.temp_max}}</div>
-                <div *ngIf="foreCast.list" class="min-temp">  {{foreCast.list[24].main.temp_min}}</div>
+                <div class="day" >{{day3}}</div>
+                <img class="forecast-icon" src="assets/{{foreCast.list[24].weather[0].icon}}.png" alt="01d.png">
+                <div >  {{foreCast.list[24].main.temp_max}}&deg;C</div>
+                <div class="min-temp"> {{foreCast.list[24].main.temp_min}}&deg;C</div>
             </div>
             <div class="forecasts">
-                <div *ngIf="foreCast.list" >{{foreCast.list[32].dt_txt.substr(0,10)}}</div>
-                <img *ngIf="foreCast.list "class="forecast-icon" src="assets/{{foreCast.list[32].weather[0].icon}}.png" alt="01d.png">
-                <div *ngIf="foreCast.list">  {{foreCast.list[32].main.temp_max}}</div>
-                <div *ngIf="foreCast.list" class="min-temp">  {{foreCast.list[8].main.temp_min}}</div>
+                <div class="day" >{{day4}}</div>
+                <img  class="forecast-icon" src="assets/{{foreCast.list[32].weather[0].icon}}.png" alt="01d.png">
+                <div >  {{foreCast.list[32].main.temp_max}}&deg;C</div>
+                <div  class="min-temp">  {{foreCast.list[32].main.temp_min}}&deg;C</div>
             </div>
 
         </div>

@@ -1,4 +1,4 @@
-<div class="all">
+<div *ngIf="details" class="all">
     <h3>City Name :{{details.name}} , In Country : {{details.sys.country}} </h3>
     <h4>The Temperature:{{details.main.temp}}</h4>
     <h4>The Wind's Speed : {{details.wind.speed}}</h4>
@@ -11,18 +11,4 @@
     <h4>The Timezone:{{details.timezone}} </h4>
     <h4>The Base :{{details.base}} </h4>
     <h4>The Visibility:{{details.visibility}} </h4>
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div>

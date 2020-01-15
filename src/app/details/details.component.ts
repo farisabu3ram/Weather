@@ -8,12 +8,11 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent implements OnInit {
-  details = {};
+  details : any;
   constructor(private weatherService: WeatherService, private routeParmCtrl: ActivatedRoute) {
     let city = routeParmCtrl.snapshot.paramMap.get('city');
     this.weatherService.getDataByCityName(city).subscribe(data => {
       this.details = data;
-      console.log(this.details);
     })
 
   }

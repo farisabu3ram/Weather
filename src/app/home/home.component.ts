@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherService } from '../weather-service.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,46 +8,51 @@ import { WeatherService } from '../weather-service.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  lat:number;
-  lon:number;
-  weather:any;
-  foreCast:any;
-  city:string;
+  lat: number;
+  lon: number;
+  weather: any;
+  foreCast: any;
+  city: string;
+  day1:string;
+  day2:string;
+  day3:string;
+  day4:string;
 
-  constructor(private weatherService: WeatherService) {
-    this.lat=0;
-    this.lon=0;
-    this.weather={};
-    this.foreCast={};
-    this.city='';
+
+  constructor(private weatherService: WeatherService, private rout: ActivatedRoute, private rout1: ActivatedRoute) {
+
   }
-  
+
   ngOnInit() {
-    this.getLocation();
+    this.rout.data.subscribe(
+      (data: { weather }) => {
+        this.weather = data.weather;
+      }
+    )
+    this.rout1.data.subscribe(
+      (data: { foreCast }) => {
+        this.foreCast = data.foreCast;
+        this.day1=this.getDay(this.foreCast.list[8].dt_txt.substr(0, 10));
+        this.day2=this.getDay(this.foreCast.list[16].dt_txt.substr(0, 10));
+        this.day3=this.getDay(this.foreCast.list[24].dt_txt.substr(0, 10));
+        this.day4=this.getDay(this.foreCast.list[32].dt_txt.substr(0, 10));
+
+       
+      }
+    )
+  }
+  getDay(date: string) {
+    var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    let dates = new Date(date);
+     let day=dates.getDay();
+     return days[day];
+
   }
 
-  getLocation() {
-    if ("geolocation" in navigator) {
-      navigator.geolocation.watchPosition((success) => {
-        this.lat = success.coords.latitude;
-        this.lon = success.coords.longitude;
-
-        this.weatherService.getWeatherDateByCoords(this.lat, this.lon).subscribe(data => {
-          this.weather = data;
-          
-          this.city=this.weather.name;
-          this.weatherService.getForeCastData(this.weather.name).subscribe(data => {
-            this.foreCast = data;
-            console.log(this.foreCast);
-          })
-        })
-      })
-    }
-
-  }
 
 
-  
+
+
 
 
 }

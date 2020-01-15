@@ -1,1 +1,9 @@
-<p>cities works!</p>
+<div>
+    <div class="input-feild">
+        <input (keyup)="onKey($event)" placeholder="Enter Your City " type="text">
+    </div>
+    <div class="cities"   *ngFor="let item of filterdCity">
+        <h1 >{{item.name}}</h1>
+
+    </div>
+</div>
