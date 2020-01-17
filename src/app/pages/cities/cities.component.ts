@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { WeatherService } from '../weather-service.service';
+import { WeatherService } from '../../services/weather-service.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -28,7 +28,7 @@ export class CitiesComponent implements OnInit {
       navigator.geolocation.watchPosition((success) => {
         this.lat = success.coords.latitude;
         this.lon = success.coords.longitude
-        this.weatherService.getNearCities(this.lat, this.lon,50).subscribe((data) => {
+        this.weatherService.getWeatherDateByCoords('find',this.lat,this.lon).subscribe((data) => {
           this.allcities = data;
           this.cities = this.allcities.list;
           this.filterdCity = this.cities;

@@ -1,14 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { DetailsComponent } from './details/details.component';
-import { CitiesComponent } from './cities/cities.component';
-import { ResolveService } from './resolve.service';
-import { ResolveForeCastService } from './resolve-fore-cast.service';
+import { DetailsComponent } from './pages/details/details.component';
+import { CitiesComponent } from './pages/cities/cities.component';
+import { HomeComponent } from './componant/home/home.component';
 
 
 const routes: Routes = [
-  {path:'home',component:HomeComponent,resolve:{weather:ResolveService,foreCast:ResolveForeCastService}},
+  {path:'home',component:HomeComponent},
   {path:'home/City/:city',component:DetailsComponent},
   {path:'home/cities',component:CitiesComponent},
   {path:'',redirectTo:'home',pathMatch:'full'}
