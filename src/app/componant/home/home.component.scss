@@ -1,6 +1,7 @@
 body {
   height: 100%;
   color: rgb(255, 255, 255);
+  overflow: hidden;
 }
 
 .today {
@@ -24,6 +25,12 @@ body {
   cursor: pointer;
 }
 
+.name {
+  min-width: 250px;
+  margin-top: 60px;
+  font-size: 30px;
+}
+
 .menu {
   display: flex;
   flex-direction: column;
@@ -38,10 +45,7 @@ body {
   margin: 6px 10px;
 }
 
-h1 {
-  margin-top: 60px;
-  font-size: 42px;
-}
+
 .weather-icon {
   display: flex;
   flex-direction: row;
@@ -49,31 +53,36 @@ h1 {
   font-size: 40px;
   margin-top: 40px;
 }
+
 .weather-icons {
   margin-top: -25px;
 }
+
 .description {
   text-align: center;
   justify-content: center;
   font-size: 40px;
 }
 
-.day{
+.day {
   min-width: 80px;
 }
+
 .forecasts {
   font-size: 20px;
   display: flex;
   flex-direction: row;
   text-align: center;
   justify-content: center;
-  margin-top: 10px;
-  padding-top: 20px;
+  margin-top: 20px;
+  padding-top: 10px;
 
 }
+
 .forecast-icon {
   margin-top: -40px;
 }
+
 .min-temp {
   margin-left: 20px;
 }

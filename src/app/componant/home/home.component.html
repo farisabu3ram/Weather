@@ -3,8 +3,8 @@
         <div class="today">
             <div class="head">
                 <div [routerLink]="['City',currentWeather.name]" class="icon">&#63;</div>
-                <h1>{{currentWeather.name }}</h1>
-                <div class="menu" [routerLink]="['cities']">
+                <div class="name">{{currentWeather.name }}</div>
+                <div class="menu" (click)="onCreate()">
                     <div class="menus"></div>
                     <div class="menus"></div>
                     <div class="menus"></div>
@@ -16,11 +16,13 @@
             </div>
             <div class="description">{{currentWeather.description}} </div>
         </div>
-            <div *ngFor="let item of foreCastArray" class="forecasts">
+        <div *ngFor="let item of foreCastArray" >
+            <div class="forecasts">
                 <div class="day">{{item.day}}</div>
                 <img class="forecast-icon" src="assets/{{item.icon}}.png" alt="01d.png">
                 <div class="day"> {{item.max_temp|number:'1.0-0'}}&deg;C</div>
                 <div class="day"> {{item.min_temp|number:'1.0-0'}}&deg;C</div>
+            </div>
         </div>
     </div>
 </body>

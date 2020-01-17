@@ -1,14 +1,20 @@
-<div *ngIf="details" class="all">
-    <h2>Your City IS {{details.name}} In {{details.country}} </h2>
-    <h3>The Temperature:{{details.temp}}</h3>
-    <h3>The Wind's Speed : {{details.speed}}</h3>
-    <h3>The Feels Like : {{details.feels_like}}</h3>
-    <h3>The Max Temperature: {{details.temp_max}}</h3>
-    <h3>The Min Temperature : {{details.temp_min}}</h3>
-    <h3>The Pressure: {{details.pressure}}</h3>
-    <h3>The Humidity : {{details.humidity}}</h3>
-    <h3>The Weather Description :{{details.description}} </h3>
-    <h3>The Timezone:{{details.timezone}} </h3>
-    <h3>The Base :{{details.base}} </h3>
-    <h3>The Visibility:{{details.visibility}} </h3>
-</div>
+<body>
+    <div *ngIf="details" class="all">
+        <h2>Your City IS {{details.name}} In {{details.country}} </h2>
+        <h3>The Temperature:{{details.temp}}</h3>
+        <h3>The Wind's Speed : {{details.speed}}</h3>
+        <h3>The Feels Like : {{details.feels_like}}</h3>
+        <h3>The Max Temperature: {{details.temp_max}}</h3>
+        <h3>The Min Temperature : {{details.temp_min}}</h3>
+        <h3>The Pressure: {{details.pressure}}</h3>
+        <h3>The Humidity : {{details.humidity}}</h3>
+        <h3>The Weather Description :{{details.description}} </h3>
+        <h3>The Timezone:{{details.timezone}} </h3>
+        <h3>The Base :{{details.base}} </h3>
+        <h3>The Visibility:{{details.visibility}} </h3>
+        <div>
+            <img [routerLink]="[ '/home']"
+                src="https://cdn1.iconfinder.com/data/icons/ui-color/512/Untitled-21-512.png">
+        </div>
+    </div>
+</body>

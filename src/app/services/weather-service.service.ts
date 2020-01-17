@@ -8,8 +8,6 @@ import { environment } from 'src/environments/environment';
 })
 export class WeatherService {
 
-  
-
   constructor(private http: HttpClient) {
   }
 

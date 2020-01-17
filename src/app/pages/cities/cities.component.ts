@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherService } from '../../services/weather-service.service';
 import { ActivatedRoute } from '@angular/router';
+import { MatDialogRef } from '@angular/material';
+
+
 
 @Component({
   selector: 'app-cities',
@@ -19,26 +22,29 @@ export class CitiesComponent implements OnInit {
     this.filterdCity = this.filter(this.name);
   }
   filter(name) {
-    return this.cities.filter(city=>
-      city.name.toLowerCase().indexOf(name.toLowerCase())!==-1);
+    return this.cities.filter(city =>
+      city.name.toLowerCase().indexOf(name.toLowerCase()) !== -1);
   }
 
-  constructor(private weatherService: WeatherService, private routeParmCtrl: ActivatedRoute) {
+  constructor(private weatherService: WeatherService, private routeParmCtrl: ActivatedRoute, public matDialogRef: MatDialogRef<CitiesComponent>) {
+
+  }
+
+  ngOnInit() {
     if ("geolocation" in navigator) {
       navigator.geolocation.watchPosition((success) => {
         this.lat = success.coords.latitude;
         this.lon = success.coords.longitude
-        this.weatherService.getWeatherDateByCoords('find',this.lat,this.lon).subscribe((data) => {
+        this.weatherService.getWeatherDateByCoords('find', this.lat, this.lon).subscribe((data) => {
           this.allcities = data;
           this.cities = this.allcities.list;
           this.filterdCity = this.cities;
-
         })
       })
     }
   }
-
-  ngOnInit() {
+  onClose(city) {
+    this.matDialogRef.close(city);
   }
 
 }

@@ -1,9 +1,16 @@
-<div>
-    <div class="input-feild">
-        <input (keyup)="onKey($event)" placeholder="Enter Your City " type="text">
+<body>
+    <div class="all">
+        <div class="input-feild">
+            <input (keyup)="onKey($event)" placeholder="Enter a City " type="text">
+        </div>
+        <div class="contain">
+            <div class="cities"(click)= "onClose(item.name)" *ngFor="let item of filterdCity">
+                <h3>{{item.name}}</h3>
+            </div>
+        </div>
+        <div>
+            <img (click)= "onClose(city)"
+                src="https://cdn1.iconfinder.com/data/icons/ui-color/512/Untitled-21-512.png">
+        </div>
     </div>
-    <div class="cities"   *ngFor="let item of filterdCity">
-        <h1 >{{item.name}}</h1>
-
-    </div>
-</div>
+</body>

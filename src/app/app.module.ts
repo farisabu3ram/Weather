@@ -7,6 +7,9 @@ import { HomeComponent } from './componant/home/home.component';
 import { DetailsComponent } from './pages/details/details.component';
 import { WeatherService } from './services/weather-service.service';
 import { CitiesComponent } from './pages/cities/cities.component';
+import {  MatDialogModule} from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -15,14 +18,18 @@ import { CitiesComponent } from './pages/cities/cities.component';
     DetailsComponent,
     CitiesComponent,
     
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    BrowserModule
+    BrowserModule,
+    MatDialogModule,
+    BrowserAnimationsModule,
   ],
   providers: [WeatherService ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[CitiesComponent]
 })
 export class AppModule { }

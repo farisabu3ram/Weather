@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherService } from 'src/app/services/weather-service.service';
-import{foreCastForFourDays} from '../foreCastForFourDays'
+import { foreCastForFourDays } from '../foreCastForFourDays'
+import { MatDialog, MatDialogConfig } from '@angular/material';
+import { CitiesComponent } from 'src/app/pages/cities/cities.component';
 
 @Component({
     selector: 'app-home',
@@ -14,16 +16,13 @@ export class HomeComponent implements OnInit {
     foreCast: any;
     currentWeather = {
         name: '',
-        icon: '',
+        icon: 'wait',
         temp: '',
         description: ''
     }
     foreCastArray = [];
 
-
-    constructor(private weatherService: WeatherService) {
-
-    }
+    constructor(private weatherService: WeatherService, private matDialog: MatDialog) { }
 
     ngOnInit() {
         navigator.geolocation.getCurrentPosition((success) => {
@@ -37,13 +36,6 @@ export class HomeComponent implements OnInit {
                     this.foreCastArray = this.setDataForeCast(this.foreCast.list);
                 })
             })
-
-
-            // this.day1 = this.getDay(this.foreCast.list[8].dt_txt.substr(0, 10));
-            // this.day2 = this.getDay(this.foreCast.list[16].dt_txt.substr(0, 10));
-            // this.day3 = this.getDay(this.foreCast.list[24].dt_txt.substr(0, 10));
-            // this.day4 = this.getDay(this.foreCast.list[32].dt_txt.substr(0, 10));
-
         })
     }
 
@@ -54,6 +46,7 @@ export class HomeComponent implements OnInit {
         return days[day];
 
     }
+
     setData(data: any) {
         try {
             this.currentWeather.name = data.name;
@@ -65,19 +58,23 @@ export class HomeComponent implements OnInit {
             console.log(e);
         }
     }
+
     setDataForeCast(data: any) {
         let counter = 4;
         let four = [];
         let currentDate = data[0].dt_txt.substr(0, 10);
         let i = 1;
         try {
-            while (counter > 0 && i < data.length){
-              if(currentDate!=data[i].dt_txt.substr(0, 10)){
-                  let fourDays=new foreCastForFourDays(this.getDay(data[i].dt_txt.substr(0, 10)),data[i].weather[0].icon,data[i].main.temp_max,data[i].main.temp_min);
-                  four.push(fourDays);
-                  currentDate=data[i].dt_txt.substr(0, 10);
-                  counter--;
-              }
+            while (counter > 0 && i < data.length) {
+                if (currentDate != data[i].dt_txt.substr(0, 10)) {
+                    let fourDays = new foreCastForFourDays(this.getDay(data[i].dt_txt.substr(0, 10)),
+                        data[i].weather[0].icon,
+                        data[i].main.temp_max,
+                        data[i].main.temp_min);
+                    four.push(fourDays);
+                    currentDate = data[i].dt_txt.substr(0, 10);
+                    counter--;
+                }
                 i++;
             }
         }
@@ -85,5 +82,29 @@ export class HomeComponent implements OnInit {
             console.log(e);
         }
         return four;
+    }
+    onCreate() {
+        const matDialogConfig = new MatDialogConfig();
+        matDialogConfig.disableClose = true;
+        matDialogConfig.autoFocus = true;
+        matDialogConfig.width = '80%';
+        matDialogConfig.height = '640px';
+        matDialogConfig.data = this.currentWeather.name;
+        matDialogConfig.panelClass = 'custom-modalbox';
+
+
+        let g = this.matDialog.open(CitiesComponent, matDialogConfig);
+        g.afterClosed().subscribe(result => {
+            let city = result;
+            this.weatherService.getDataByCityName('weather', city).subscribe((data) => {
+                this.weather = data;
+                this.setData(this.weather);
+                this.weatherService.getDataByCityName("forecast", city).subscribe((data) => {
+                    this.foreCast = data;
+                    this.foreCastArray = this.setDataForeCast(this.foreCast.list);
+
+                });
+            })
+        })
     }
 }
