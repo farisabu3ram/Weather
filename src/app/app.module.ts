@@ -9,6 +9,7 @@ import { WeatherService } from './services/weather-service.service';
 import { CitiesComponent } from './pages/cities/cities.component';
 import {  MatDialogModule} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DetailsforecastComponent } from './pages/detailsforecast/detailsforecast.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HomeComponent,
     DetailsComponent,
     CitiesComponent,
+    DetailsforecastComponent,
     
     
   ],

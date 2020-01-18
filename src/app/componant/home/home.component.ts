@@ -3,6 +3,7 @@ import { WeatherService } from 'src/app/services/weather-service.service';
 import { foreCastForFourDays } from '../foreCastForFourDays'
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { CitiesComponent } from 'src/app/pages/cities/cities.component';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-home',
@@ -18,11 +19,12 @@ export class HomeComponent implements OnInit {
         name: '',
         icon: 'wait',
         temp: '',
-        description: ''
+        description: '',
+        
     }
     foreCastArray = [];
 
-    constructor(private weatherService: WeatherService, private matDialog: MatDialog) { }
+    constructor(private weatherService: WeatherService, private matDialog: MatDialog, private router: Router) { }
 
     ngOnInit() {
         navigator.geolocation.getCurrentPosition((success) => {
@@ -62,17 +64,18 @@ export class HomeComponent implements OnInit {
     setDataForeCast(data: any) {
         let counter = 4;
         let four = [];
-        let currentDate = data[0].dt_txt.substr(0, 10);
+        let currentDay = this.getDay(data[0].dt_txt);
         let i = 1;
         try {
             while (counter > 0 && i < data.length) {
-                if (currentDate != data[i].dt_txt.substr(0, 10)) {
-                    let fourDays = new foreCastForFourDays(this.getDay(data[i].dt_txt.substr(0, 10)),
+                if (currentDay != this.getDay(data[i].dt_txt)) {
+                    let fourDays = new foreCastForFourDays(this.getDay(data[i].dt_txt),
                         data[i].weather[0].icon,
                         data[i].main.temp_max,
-                        data[i].main.temp_min);
+                        data[i].main.temp_min,
+                        data[i]);
                     four.push(fourDays);
-                    currentDate = data[i].dt_txt.substr(0, 10);
+                    currentDay = this.getDay(data[i].dt_txt);
                     counter--;
                 }
                 i++;
@@ -91,7 +94,7 @@ export class HomeComponent implements OnInit {
         matDialogConfig.height = '640px';
         matDialogConfig.data = this.currentWeather.name;
         matDialogConfig.panelClass = 'custom-modalbox';
-
+        matDialogConfig.data = this.currentWeather.name;
 
         let g = this.matDialog.open(CitiesComponent, matDialogConfig);
         g.afterClosed().subscribe(result => {
@@ -106,5 +109,9 @@ export class HomeComponent implements OnInit {
                 });
             })
         })
+    }
+    goTo(data:any) {
+        this.weatherService.setDetails(data);
+        this.router.navigate(["home/details",this.currentWeather.name]);
     }
 }
