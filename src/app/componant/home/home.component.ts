@@ -11,34 +11,35 @@ import { Router } from '@angular/router';
     styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+    constructor(private weatherService: WeatherService, private matDialog: MatDialog, private router: Router) { }
+
     lat: number;
     lon: number;
     weather: any;
     foreCast: any;
-    currentWeather = {
-        name: '',
-        icon: 'wait',
-        temp: '',
-        description: '',
-        
-    }
-    foreCastArray = [];
+    currentWeather = this.weatherService.currentWeather;
+    foreCastArray = this.weatherService.foreCastArray;
 
-    constructor(private weatherService: WeatherService, private matDialog: MatDialog, private router: Router) { }
 
     ngOnInit() {
-        navigator.geolocation.getCurrentPosition((success) => {
-            this.lat = success.coords.latitude;
-            this.lon = success.coords.longitude;
-            this.weatherService.getWeatherDateByCoords('weather', this.lat, this.lon).subscribe((data) => {
-                this.weather = data;
-                this.setData(this.weather);
-                this.weatherService.getWeatherDateByCoords("forecast", this.lat, this.lon).subscribe((data) => {
-                    this.foreCast = data;
-                    this.foreCastArray = this.setDataForeCast(this.foreCast.list);
+        if (this.weatherService.yourArea) {
+            navigator.geolocation.getCurrentPosition((success) => {
+                this.lat = success.coords.latitude;
+                this.lon = success.coords.longitude;
+                this.weatherService.getWeatherDateByCoords('weather', this.lat, this.lon).subscribe((data) => {
+                    this.weather = data;
+                    this.setData(this.weather);
+                    this.currentWeather = this.weatherService.currentWeather;
+                    this.weatherService.getWeatherDateByCoords("forecast", this.lat, this.lon).subscribe((data) => {
+                        this.foreCast = data;
+                        this.weatherService.foreCastArray = this.setDataForeCast(this.foreCast.list);
+                        this.foreCastArray = this.weatherService.foreCastArray;
+
+                    })
                 })
             })
-        })
+            this.weatherService.yourArea = false;
+        }
     }
 
     getDay(date: string) {
@@ -51,10 +52,10 @@ export class HomeComponent implements OnInit {
 
     setData(data: any) {
         try {
-            this.currentWeather.name = data.name;
-            this.currentWeather.icon = data.weather[0].icon;
-            this.currentWeather.temp = data.main.temp;
-            this.currentWeather.description = data.weather[0].description;
+            this.weatherService.currentWeather.name = data.name;
+            this.weatherService.currentWeather.icon = data.weather[0].icon;
+            this.weatherService.currentWeather.temp = data.main.temp;
+            this.weatherService.currentWeather.description = data.weather[0].description;
         }
         catch (e) {
             console.log(e);
@@ -92,9 +93,8 @@ export class HomeComponent implements OnInit {
         matDialogConfig.autoFocus = true;
         matDialogConfig.width = '80%';
         matDialogConfig.height = '640px';
-        matDialogConfig.data = this.currentWeather.name;
+        matDialogConfig.data = this.weatherService.currentWeather.name;
         matDialogConfig.panelClass = 'custom-modalbox';
-        matDialogConfig.data = this.currentWeather.name;
 
         let g = this.matDialog.open(CitiesComponent, matDialogConfig);
         g.afterClosed().subscribe(result => {
@@ -102,16 +102,17 @@ export class HomeComponent implements OnInit {
             this.weatherService.getDataByCityName('weather', city).subscribe((data) => {
                 this.weather = data;
                 this.setData(this.weather);
+                this.currentWeather = this.weatherService.currentWeather;
                 this.weatherService.getDataByCityName("forecast", city).subscribe((data) => {
                     this.foreCast = data;
-                    this.foreCastArray = this.setDataForeCast(this.foreCast.list);
-
+                    this.weatherService.foreCastArray = this.setDataForeCast(this.foreCast.list);
+                    this.foreCastArray = this.weatherService.foreCastArray;
                 });
             })
         })
     }
-    goTo(data:any) {
+    showDetsils(data: any) {
         this.weatherService.setDetails(data);
-        this.router.navigate(["home/details",this.currentWeather.name]);
+        this.router.navigate(["home/details", this.weatherService.currentWeather.name]);
     }
 }

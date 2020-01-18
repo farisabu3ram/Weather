@@ -17,7 +17,7 @@
             <div class="description">{{currentWeather.description}} </div>
         </div>
         <div *ngFor="let item of foreCastArray" >
-            <div class="forecasts" (click)="goTo(item.fourDay)">
+            <div class="forecasts" (click)="showDetsils(item.fourDay)">
                 <div class="day">{{item.day}}</div>
                 <img class="forecast-icon" src="assets/{{item.icon}}.png" alt="01d.png">
                 <div class="day"> {{item.max_temp|number:'1.0-0'}}&deg;C</div>
