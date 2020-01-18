@@ -37,7 +37,6 @@ $Weather-theme: mat-light-theme($Weather-primary, $Weather-accent, $Weather-warn
 html,
 body {
     height: 100%;
-    background: url(https://forums.androidcentral.com/attachments/samsung-galaxy-s5-active/131850d1407864962t-samsung-galaxy-s5-active-wallpaper-lockscreen_default_wallpaper.jpg);
     color: white;
     background-size: cover;
     background-repeat: no-repeat;
@@ -50,7 +49,7 @@ body {
 
 body {
     margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-family: Bahnschrift ;
 }
 .custom-modalbox {
     mat-dialog-container {

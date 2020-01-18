@@ -2,88 +2,104 @@ body {
   height: 100%;
   color: rgb(255, 255, 255);
   overflow: hidden;
-}
-
-.today {
-  display: flex;
-  flex-direction: column;
-}
-
-.head {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 10px 15px 0px 2px;
-  text-align: center;
-}
-
-.icon {
-  width: 50px;
-  height: 50px;
-  color: rgb(33, 33, 34);
-  font-size: 50px;
-  cursor: pointer;
-}
-
-.name {
-  min-width: 250px;
-  margin-top: 60px;
-  font-size: 30px;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .menu {
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  margin-top: 10px;
+  margin-right: 10px;
 }
 
 .menus {
   width: 35px;
-  height: 5px;
-  background-color: rgb(33, 33, 34);
+  height: 2px;
+  background-color: white;
   margin: 6px 10px;
 }
 
-
-.weather-icon {
+.all {
   display: flex;
-  flex-direction: row;
   justify-content: center;
-  font-size: 40px;
-  margin-top: 40px;
+  text-align: center;
+  flex-direction: column;
 }
 
-.weather-icons {
-  margin-top: -25px;
+.head {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  flex-direction: row;
+}
+
+.icon {
+  margin-left: 10px;
+  font-size: 40px;
+  justify-content: flex-start;
+}
+
+.name {
+  font-size: 30px;
+  margin-top: 10px;
+  text-transform: uppercase;
+
+}
+
+.weather-icon {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: row;
+
+}
+
+.slc {
+  margin-top: 25px;
+  font-size: 80px;
 }
 
 .description {
-  text-align: center;
-  justify-content: center;
-  font-size: 40px;
-}
-
-.day {
-  min-width: 80px;
+  margin-top: 2px;
+  font-size: 20px;
+  margin-bottom: 150px;
+  text-transform: capitalize;
 }
 
 .forecasts {
-  font-size: 20px;
+  height: 30px;
+  background-color: rgba(149, 147, 147, 0.281);
   display: flex;
+  justify-content: space-around;
+  align-items: center;
   flex-direction: row;
-  text-align: center;
-  justify-content: center;
-  margin-top: 15px;
+  margin-top: 10px;
   cursor: pointer;
-  padding-top: 10px;
-  
 }
 
 .forecast-icon {
-  margin-top: -40px;
+  width: 50px;
+  height: 50px;
 }
 
-.min-temp {
-  margin-left: 20px;
+.day {
+  min-width: 100px;
+}
+
+.temp {
+  min-width: 100px;
+}
+.home-icon{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.home {
+  cursor: pointer;
+  margin-top: 30px;
+  width: 30px;
+  height: 30px;
 }

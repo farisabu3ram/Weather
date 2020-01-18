@@ -47,6 +47,9 @@ export class DetailsComponent implements OnInit {
     this.details.base = data.base;
     this.details.visibility = data.visibility;
   }
+  background(){
+    return this.weatherService.background;
+  }
   ngOnInit() {
 
   }

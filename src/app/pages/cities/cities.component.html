@@ -1,7 +1,7 @@
-<body>
+<body [ngStyle]="{'background': background()}">
     <div class="all">
         <div class="input-feild">
-            <input (keyup)="onKey($event)" placeholder="Enter a City " type="text">
+            <input (keyup)="onKey($event)" placeholder="Enter a Region " type="text">
         </div>
         <div class="contain">
             <div class="cities"(click)= "onClose(item.name)" *ngFor="let item of filterdCity">

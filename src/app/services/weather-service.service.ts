@@ -9,6 +9,7 @@ import { Observable, of } from 'rxjs';
 })
 export class WeatherService {
   details: any;
+  background: string;
   currentWeather = {
     name: '',
     icon: 'wait',
@@ -16,7 +17,7 @@ export class WeatherService {
     description: ''
   }
   foreCastArray = [];
-  yourArea:boolean=true;
+  yourArea: boolean = true;
 
   constructor(private http: HttpClient) {
   }

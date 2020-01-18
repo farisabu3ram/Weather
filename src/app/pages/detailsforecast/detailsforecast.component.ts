@@ -43,6 +43,9 @@ export class DetailsforecastComponent implements OnInit {
   }
   ngOnInit() {
   }
+  background() {
+    return this.weatherService.background;
+  }
 
   getDay(date: string) {
     var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];

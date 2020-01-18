@@ -43,13 +43,12 @@ export class CitiesComponent implements OnInit {
         this.filterdCity = this.cities;
       })
     })
-
-
-
-
+  }
+  background(){
+    return this.weatherService.background;
   }
   onClose(city) {
     this.matDialogRef.close(city);
   }
-
+ 
 }

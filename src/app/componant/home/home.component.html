@@ -1,28 +1,27 @@
-<body>
+<body [ngStyle]="{'background': background()}">
     <div class="all">
-        <div class="today">
-            <div class="head">
-                <div [routerLink]="['City',currentWeather.name]" class="icon">&#63;</div>
-                <div class="name">{{currentWeather.name }}</div>
-                <div class="menu" (click)="onCreate()">
-                    <div class="menus"></div>
-                    <div class="menus"></div>
-                    <div class="menus"></div>
-                </div>
+        <div class="head">
+            <div [routerLink]="['City',currentWeather.name]" class="icon">&#63;</div>
+            <div class="name">{{currentWeather.name }}</div>
+            <div class="menu" (click)="onCreate()">
+                <div class="menus"></div>
+                <div class="menus"></div>
+                <div class="menus"></div>
             </div>
-            <div class="weather-icon">
-                <img class="weather-icons" src="assets/{{currentWeather.icon}}.png" alt="01d.png">
-                <div class="slc">{{currentWeather.temp|number:'1.0-0'}} &#176;C</div>
-            </div>
-            <div class="description">{{currentWeather.description}} </div>
         </div>
-        <div *ngFor="let item of foreCastArray" >
-            <div class="forecasts" (click)="showDetsils(item.fourDay)">
-                <div class="day">{{item.day}}</div>
-                <img class="forecast-icon" src="assets/{{item.icon}}.png" alt="01d.png">
-                <div class="day"> {{item.max_temp|number:'1.0-0'}}&deg;C</div>
-                <div class="day"> {{item.min_temp|number:'1.0-0'}}&deg;C</div>
-            </div>
+        <div class="weather-icon">
+            <div class="slc">{{currentWeather.temp|number:'1.0-0'}}&#176;</div>
+            <img class="weather-icons" src="assets/{{currentWeather.icon}}.png" alt="01d.png">
+        </div>
+        <div class="description">{{currentWeather.description}} </div>
+        <div *ngFor="let item of foreCastArray" class="forecasts" (click)="showDetsils(item.fourDay)">
+            <div class="day">{{item.day}}</div>
+            <img class="forecast-icon" src="assets/{{item.icon}}.png" alt="01d.png">
+            <div class="temp"> {{item.max_temp|number:'1.0-0'}}&deg;/{{item.min_temp|number:'1.0-0'}}&deg;</div>
+        </div>
+        <div class="home-icon">
+            <img class="home"
+                src="https://icons-for-free.com/iconfiles/png/512/home-131964752879605498.png" (click)=" homeDetails()">
         </div>
     </div>
 </body>
