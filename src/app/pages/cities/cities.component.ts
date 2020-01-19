@@ -32,7 +32,6 @@ export class CitiesComponent implements OnInit {
   }
 
   ngOnInit() {
-
     this.weatherService.getDataByCityName('weather', this.city).subscribe((data) => {
       this.weather = data;
       this.lat = this.weather.coord.lat;
