@@ -50,7 +50,7 @@ export class HomeComponent implements OnInit {
     }
     /*
    This function take a date and retuen a day of that day
-    */ 
+    */
     getDay(date: string) {
         var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
         let dates = new Date(date);
@@ -58,7 +58,7 @@ export class HomeComponent implements OnInit {
         return days[day];
 
     }
-      
+
     setData(data: any) {
         try {
             this.weatherService.currentWeather.name = data.name;
@@ -137,9 +137,8 @@ export class HomeComponent implements OnInit {
      change the background depends on the day description
      */
     background() {
-        console.log(this.currentWeather.description);
         if (this.currentWeather.description.search('rain') != -1)
-            return 'url(' + 'https://lh3.googleusercontent.com/tz1Z6UYPbCQjCbmfPDD1Jd04X0t7igNyszYbqnDoTA1YsKlveHCwHEMSBD0dBitB7WC0uiYSdKjLCoBynm1OzfvMtpB4YMq7VtOuSRaQODjAwDG-2zuSEpl2nt89jjX3JYs62SRuMwSlhDy_dYzZF88xA7pDW8ES2psyTvONXMm5MWWNb6ZCim6GCSm64qBFVInJ6JijzVPV4Pa5KhbCh2eiy2OjjoAGzd1gzHlTZHDDrDO-AO7FUl-7pBiPTpKHN6gwfqf1Y24JhhHIqRNP4droO55LFz215WFf1V4d-czUQE98wvZ0nEK7-KmaaUU4hcpNHIc2nZqOCsSojInrClRZDG3BpEQbyNDZTQKl4kBwXvqH_LuJAqumlG4dreHDx03fLlxqWEMlJDNyN0srfDzF1v9zVhx17A-2YGcT8Hn4mx-b0Ee67y6pqiGYEc74K0GUujFKantzCGWHJZ8hm-IqIQPZdBIuel3lzJyjS0m_UjTOtVF8mWoF5RiCTZlYNeTXHXBMX6UYafU65CjYH3bLmJmhQ0ssXZfwX5Av04UxutjFOUy5PFwTLWC5fMCv6jqIwNIhaPd_HQYmdsZp02HrPGbL1-9LmJjL7hhTnYo2WdgL8ZdegAI_kVHhHb6DDLzOXjtvQkzBBZloppTpPUm74HHjItRFtpnwEjGmXh1mo8LFqqEhEKo=w580-h928-no' + ')';
+            return 'url(' + 'https://scontent.fjrs11-1.fna.fbcdn.net/v/t1.15752-9/82477750_787917458369370_7153681306126123008_n.png?_nc_cat=109&_nc_ohc=jTPCxVzXgSMAX8JVNqI&_nc_ht=scontent.fjrs11-1.fna&oh=7360ca6d6ec5da8404eb189efb18f5ef&oe=5EDAD222' + ')';
         else if (this.currentWeather.description.search('snow') != -1)
             return 'url(' + 'https://scontent.fjrs2-1.fna.fbcdn.net/v/t1.15752-9/82941078_510368736262289_4687722160930684928_n.png?_nc_cat=106&_nc_ohc=SWsJ1fLZpqsAX_F6fwp&_nc_ht=scontent.fjrs2-1.fna&oh=17bf8b4bf6568e20100b31a46f4a51a0&oe=5E8F51DE' + ')';
         else if (this.currentWeather.description == 'clear sky')

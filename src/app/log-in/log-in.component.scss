@@ -1,0 +1,77 @@
+$background-color:#ffffff;
+$create-button-color:#06953f;
+$button-color:white;
+
+
+.all {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    position: relative;
+    margin-top: 19%;
+
+}
+.header{
+   color:black;
+   font-size: 50px;
+}
+
+.contain {
+    height: auto;
+    outline: none;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.5);
+    background-color: white;
+
+    div {
+        padding: 10px;
+    }
+
+    position: relative;
+    background-color: $background-color;
+    border-radius: 3%;
+
+    input {
+        color: #333;
+        width: 80%;
+        height: 40px;
+        padding: 2px;
+        position: relative;
+        font-size: 25px;
+        outline: none;
+    }
+}
+
+.button {
+    font-size: 20px;
+    outline: none;
+    background-color: $create-button-color;
+    cursor: pointer;
+    border: 1px $create-button-color;
+    min-height: 60px;
+    text-align: center;
+    margin-bottom: -1px;
+    font-family: Calibri Light;
+    color: $button-color;
+    width: 100%;
+}
+
+.error {
+    color: rgb(173, 0, 0);
+    text-align: initial;
+    min-width: 200px;
+    margin-left: 20px;;
+}
+
+
+.button:hover {
+    background-color: darken($create-button-color, 10%);
+}
+
+::placeholder {
+    font-size: 20px;
+}
