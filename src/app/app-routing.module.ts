@@ -4,7 +4,7 @@ import { DetailsComponent } from './pages/details/details.component';
 import { CitiesComponent } from './pages/cities/cities.component';
 import { HomeComponent } from './componant/home/home.component';
 import { DetailsforecastComponent } from './pages/detailsforecast/detailsforecast.component';
-import { LogInComponent } from './log-in/log-in.component';
+import { LogInComponent } from './pages/log-in/log-in.component';
 
 
 const routes: Routes = [

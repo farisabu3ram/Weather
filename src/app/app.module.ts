@@ -10,8 +10,8 @@ import { CitiesComponent } from './pages/cities/cities.component';
 import {  MatDialogModule} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DetailsforecastComponent } from './pages/detailsforecast/detailsforecast.component';
-import { LogInComponent } from './log-in/log-in.component';
 import {  FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LogInComponent } from './pages/log-in/log-in.component';
 
 
 @NgModule({
