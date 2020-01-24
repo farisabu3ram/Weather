@@ -2,15 +2,15 @@ $background-color:#ffffff;
 $create-button-color:#06953f;
 $button-color:white;
 
-
+*{
+    height: 100%;
+}
 .all {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: 100%;
     position: relative;
-    margin-top: 19%;
 
 }
 .header{

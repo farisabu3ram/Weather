@@ -1,37 +1,18 @@
-<form [formGroup]="form">
+<form [formGroup]="form" (submit)="logIn()">
     <div class="all">
         <div class="contain">
             <div class="header">Login</div>
             <div class="email">
-                <input type="email" placeholder="Enter Your Email" formControlName="email">
-                <div class="error" *ngIf="email.errors?.required &&email.touched"> Email is required.</div>
-                <div class="error" *ngIf="email.invalid && email.touched &&!email.errors?.required ">The
-                    Email end of
-                    @pseu.edu </div>
-                <div class="error" *ngIf="email.errors?.maxlength &&email.touched"> Email can't be over
-                    180
-                    digit.
-                </div>
+                <input type="email" (keyup)="disapear()" placeholder="Enter Your Email" formControlName="email">
+                <div class="error" [ngStyle]="{'display': showMessage}"> {{message}}</div>
             </div>
             <div class="password">
-                <input type="password" placeholder="Enter Your Password" formControlName="password">
-                <div class="error" *ngIf="password.errors?.required && password.touched"> PassWord is
-                    required.</div>
-                <div class="error" *ngIf="password.invalid && password.touched &&!password.errors?.required "> Your
-                    password
-                    must have capital letter</div>
-                <div class="error" *ngIf="password.invalid && password.touched &&!password.errors?.required "> Your
-                    password must have small letter</div>
-                <div class="error" *ngIf="password.invalid && password.touched &&!password.errors?.required "> Your
-                    password must have number</div>
-                <div class="error" *ngIf="password.invalid && password.touched &&!password.errors?.required ">
-                    Your password must have special character</div>
-                <div class="error" *ngIf="password.invalid && password.touched &&!password.errors?.required ">
-                    Your password must between 6 to 12 digit</div>
-
+                <input type="password" (keyup)="disapearPass()" placeholder="Enter Your Password"
+                    formControlName="password">
+                <div class="error" [ngStyle]="{'display': showMessagePass}"> {{messagePass}}</div>
             </div>
 
-            <button type="submit" class="button" (click)="logIn()">Login</button>
+            <button type="submit" class="button">Login</button>
         </div>
     </div>
 
