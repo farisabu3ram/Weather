@@ -26,39 +26,38 @@ export class LogInComponent implements OnInit {
     if (this.email.valid && this.password.valid)
       this.rout.navigate(['/home']);
     else {
-      if (this.email.errors && this.email.errors.required) {
-        this.message = `Email is required.`
-        this.showMessage = 'flex'
-      }
-      else if (this.email.errors && this.email.errors.maxlength) {
-        this.message = `Email can't be over 180digit.`;
-        this.showMessage = 'flex'
+      if (this.email.errors) {
+        if (this.email.errors.required) {
+          this.message = `Email is required.`
+        }
+        else if (this.email.errors.maxlength) {
+          this.message = `Email can't be over 180digit.`;
 
-      }
-      else if (this.email.invalid) {
-        this.message = `The Email end of @pseu.edu`;
+        }
+        else if (this.email.invalid) {
+          this.message = `The Email end of @pseu.edu`;
+        }
         this.showMessage = 'flex';
       }
       else
         this.showMessage = 'none';
+      if (this.password.errors) {
+        if (this.password.errors.required) {
+          this.messagePass = `Password is required.`;
+        }
+        else if (this.password.errors.minlength) {
+          this.messagePass = `Password  at least 6 digit.`;
 
-      if (this.password.errors && this.password.errors.required) {
-        this.messagePass = `Password is required.`;
+        }
+        else if (this.password.errors.maxlength) {
+          this.messagePass = `Password can't be over 12 digit.`;
+
+        }
+        else if (this.password.invalid) {
+          this.messagePass = `Use a mix of letters, numbers & symbols`;
+        }
         this.showMessagePass = 'flex';
-      }
-      else if (this.password.errors && this.password.errors.minlength) {
-        this.messagePass = `Password  at least 6 digit.`;
-        this.showMessagePass = 'flex'
 
-      }
-      else if (this.password.errors && this.password.errors.maxlength) {
-        this.messagePass = `Password can't be over 12 digit.`;
-        this.showMessagePass = 'flex'
-
-      }
-      else if (this.password.invalid) {
-        this.messagePass = `Use a mix of letters, numbers & symbols`;
-        this.showMessagePass = 'flex';
       }
       else
         this.showMessagePass = 'none';
