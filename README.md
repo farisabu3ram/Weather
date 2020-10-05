@@ -1,7 +1,7 @@
 # Weather
 > App provides weather information where the user is located based on its coordinates as well as the regions near it. Also, you can see details about the weather like           > temperature, wind's speed, feels like, max and min temperature, humidity, pressure, and extra.
 
-#Tabel of contents 
+## Tabel of contents 
 - [General Information](#General-Information)
 - [Technologies](#Technologies)
 - [Features](#Features)
