@@ -12,7 +12,7 @@
 - [License](#License)
 
 ## General Information
-> The app is implemented using the Angular framework for educational purposes. In the beginning, the area is known by coordinates then I receive from the API all the weather    > information about this area like temperature, wind's speed, feels like, max and min temperature, humidity, pressure, and extra.
+> The app is implemented using the Angular framework for educational purposes. In the beginning, the area is known by coordinates then I receive from the API all the weather     information about this area like temperature, wind's speed, feels like, max and min temperature, humidity, pressure, and extra.
 
 ## Technologies
 Angular 6
