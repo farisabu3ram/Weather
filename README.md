@@ -1,27 +1,43 @@
 # Weather
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
+ِ> App provides weather information where the user is located based on its coordinates as well as the regions near it. Also, you can see details about the weather like            > temperature, wind's speed, feels like, max and min temperature, humidity, pressure, and extra.
 
-## Development server
+#Tabel of contents 
+- [General Information](#General Information)
+- [Technologies](#Technologies)
+- [Features](#Features)
+- [Built with](#Built with)
+- [Versioning](#Versioning)
+- [Enviroments](#Enviroments)
+- [Author](#Author)
+- [License](#License)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## General Information
+> The app is implemented using the Angular framework for educational purposes. In the beginning, the area is known by coordinates then I receive from the API all the weather    > information about this area like temperature, wind's speed, feels like, max and min temperature, humidity, pressure, and extra.
 
-## Code scaffolding
+## Technologies
+Angular 6
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Features
+- The area is known by coordinates.
+- Using API to get weather information.
+- Menu has the neighbor areas.
 
-## Build
+## Built with 
+ ِAngular: website framwork
+ 
+## Versioning
+This is the first version
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Enviroments
+Compatible with all of these web browsers:
+- Google Chrome
+- Firefox
+- Opera
+- Microsoft Edge
 
-## Running unit tests
+## Author 
+-[Faris Abuarram](aburamf@gmail.com)-software engineer and web developer - PSEU
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## License 
+No License
