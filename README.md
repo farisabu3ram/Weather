@@ -3,10 +3,10 @@
 ِ> App provides weather information where the user is located based on its coordinates as well as the regions near it. Also, you can see details about the weather like            > temperature, wind's speed, feels like, max and min temperature, humidity, pressure, and extra.
 
 #Tabel of contents 
-- [General Information](#General Information)
+- [General Information](#General-Information)
 - [Technologies](#Technologies)
 - [Features](#Features)
-- [Built with](#Built with)
+- [Built with](#Built-with)
 - [Versioning](#Versioning)
 - [Enviroments](#Enviroments)
 - [Author](#Author)
@@ -37,7 +37,7 @@ Compatible with all of these web browsers:
 - Microsoft Edge
 
 ## Author 
--[Faris Abuarram](aburamf@gmail.com)-software engineer and web developer - PSEU
+- [Faris Abuarram] (mailto:aburamf@gmail.com)-software engineer and web developer - PSEU
 
 ## License 
 No License
